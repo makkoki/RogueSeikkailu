@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111827" />
+    <title>Rogue-seikkailu</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">Kahden luolan koettelemus</p>
+          <h1>Rogue-seikkailu</h1>
+        </div>
+        <button id="restart" type="button">Aloita alusta</button>
+      </header>
+
+      <section class="game-layout" aria-label="Peli">
+        <div class="board-wrap">
+          <canvas id="game" width="672" height="480" aria-label="Luolakartta"></canvas>
+          <div id="controls" aria-label="Kosketusohjaimet">
+            <button data-move="0,-1" aria-label="Ylös">▲</button>
+            <button data-move="-1,0" aria-label="Vasemmalle">◀</button>
+            <button data-move="0,1" aria-label="Alas">▼</button>
+            <button data-move="1,0" aria-label="Oikealle">▶</button>
+          </div>
+        </div>
+
+        <aside>
+          <div class="stats">
+            <span>Luola <strong id="depth">1 / 2</strong></span>
+            <span>Voima <strong id="power">1</strong></span>
+            <span>Kunto <strong id="hp">8 / 8</strong></span>
+          </div>
+          <div class="legend">
+            <h2>Merkit</h2>
+            <p><b class="hero">@</b> Sinä</p>
+            <p><b class="enemy">S, L, V</b> Vihollisia</p>
+            <p><b class="gear">!</b> Varuste</p>
+            <p><b class="stairs">&gt; / &lt;</b> Portaat</p>
+            <p><b class="prize">★</b> Etsitty palkinto</p>
+          </div>
+          <div id="message" role="status" aria-live="polite">Löydä tie syvimmän luolan aarteelle!</div>
+          <p class="help">Liiku nuolilla tai WASD:llä. Hyökkää liikkumalla vihollista kohti.</p>
+        </aside>
+      </section>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
