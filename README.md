@@ -1,7 +1,7 @@
 # Rogue-seikkailu selaimessa
 
 Tämä hakemisto sisältää pienen, lapsille ja nuorille sopivan 2D-roguelike-pelin,
-jonka voi avata suoraan selaimessa. Pelaaja tutkii kahta luolatasoa, taistelee
+jonka voi avata suoraan selaimessa. Pelaaja tutkii viittä luolatasoa, taistelee
 kirjaimilla merkittyjä vihollisia vastaan, kerää varusteita ja etsii alimman
 huoneen aarretta.
 
@@ -14,8 +14,31 @@ python3 -m http.server 8000
 ```
 
 Avaa sitten <http://localhost:8000>. Liiku nuolinäppäimillä tai WASD-näppäimillä.
-Mobiilissa voit käyttää ruudun nuolipainikkeita. Liiku vihollista kohti
-hyökätäksesi ja astu portaalle vaihtaaksesi luolatasoa.
+Mobiilissa voit käyttää ruudun nuolipainikkeita. Astu portaalle vaihtaaksesi
+luolatasoa. Tavoitteesi on löytää viidennen luolan kultainen Valotähti (`★`).
+
+## Peliohje
+
+- Liiku nuolinäppäimillä, WASD-näppäimillä tai mobiilin nuolipainikkeilla.
+- Viholliset liikkuvat jokaisen vuorosi jälkeen kohti pelaajaa. Kun vihollinen
+  pääsee viereesi, sen osuma vähentää kuntoasi. Peli päättyy kun kunto loppuu.
+- Tuhoa vihollinen **liikkumalla sitä kohti**. Tällöin hyökkäät liikkumisen
+  sijaan. Hyökkää uudelleen, kunnes vihollisen kestopisteet loppuvat.
+- Kerää taikavaruste (`!`): se kasvattaa hyökkäysvoimaa yhdellä, kasvattaa
+  enimmäiskuntoa kahdella ja palauttaa kuntosi täyteen.
+- Portaat `>` vievät seuraavaan luolaan ja portaat `<` edelliseen. Voit palata
+  hakemaan väliin jääneen varusteen.
+
+### Viholliset
+
+| Merkki | Vihollinen | Ominaisuudet |
+| --- | --- | --- |
+| `S` | Sammalmönkijä | 2 kestopistettä, liikkuu joka toisella vuorolla ja tekee 1 vahinkoa. |
+| `L` | Lepakko | 1 kestopiste, liikkuu joka vuorolla ja tekee 1 vahinkoa. |
+| `V` | Kivivartija | 3 kestopistettä, liikkuu joka vuorolla ja tekee 2 vahinkoa. |
+
+Vihollinen ei voi liikkua seinän tai toisen vihollisen läpi. Se voi kuitenkin
+kiertää esteen, joten seuraa sen liikettä ja käytä luolan käytäviä hyväksesi.
 
 ## Kuinka tällainen peli tehdään Codexilla
 
@@ -47,4 +70,3 @@ Esimerkkipyyntö Codexille:
 - `index.html` – käyttöliittymä ja Canvas-pelialue
 - `styles.css` – responsiivinen, selkeä ulkoasu
 - `game.js` – pelitila, kartat, vuorot, taistelu ja piirtäminen
-
